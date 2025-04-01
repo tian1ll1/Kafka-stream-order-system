@@ -3,9 +3,11 @@ package com.example.domain;
 public enum OrderStatus {
     CREATED,
     INVENTORY_CHECKED,
+    INVENTORY_UPDATED,
     PAYMENT_PROCESSING,
-    PAID,
+    PAYMENT_COMPLETED,
+    PAYMENT_FAILED,
     COMPLETED,
     CANCELLED,
-    CANCELLING
+    FAILED
 } 

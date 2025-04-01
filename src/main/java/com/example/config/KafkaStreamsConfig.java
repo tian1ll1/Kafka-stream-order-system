@@ -33,7 +33,6 @@ public class KafkaStreamsConfig {
         props.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG, 2);
         props.put(StreamsConfig.NUM_STANDBY_REPLICAS_CONFIG, 1);
         props.put(StreamsConfig.REPLICATION_FACTOR_CONFIG, 3);
-        props.put(StreamsConfig.MIN_INSYNC_REPLICAS_CONFIG, 2);
         props.put(StreamsConfig.ACCEPTABLE_RECOVERY_LAG_CONFIG, 10000);
         props.put(StreamsConfig.MAX_TASK_IDLE_MS_CONFIG, 300000);
         props.put(StreamsConfig.TASK_TIMEOUT_MS_CONFIG, 300000);

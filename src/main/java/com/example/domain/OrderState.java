@@ -9,11 +9,12 @@ import java.util.List;
 @Data
 public class OrderState {
     private String orderId;
-    private OrderStatus status;
+    private String customerId;
     private List<OrderItem> items;
+    private String status;
+    private String paymentStatus;
+    private String inventoryStatus;
     private BigDecimal totalAmount;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private String cancellationReason;
-    private LocalDateTime cancelledAt;
 } 

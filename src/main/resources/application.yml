@@ -8,18 +8,43 @@ spring:
       properties:
         commit.interval.ms: 1000
         processing.guarantee: exactly_once_v2
-        num.stream.threads: 2
-        num.standby.replicas: 1
-        replication.factor: 3
-        min.insync.replicas: 2
-        acceptable.recovery.lag: 10000
-        max.task.idle.ms: 300000
-        task.timeout.ms: 300000
-        window.store.change.log.additional.retention.ms: 86400000
-        state.cleanup.delay.ms: 60000
+        num.stream.threads: 1
+        num.standby.replicas: 0
+        replication.factor: 1
+        min.insync.replicas: 1
+        acceptable.recovery.lag: 1000
+        max.task.idle.ms: 10000
+        task.timeout.ms: 10000
+        window.store.change.log.additional.retention.ms: 1000
+        state.cleanup.delay.ms: 1000
         topology.optimization: optimize
         default.deserialization.exception.handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler
         default.production.exception.handler: org.apache.kafka.streams.errors.DefaultProductionExceptionHandler
+    admin:
+      auto-create: true
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: order-processing-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.example.events,com.example.domain"
+
+# SpringDoc OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    try-it-out-enabled: true
+  show-actuator: true
+  packages-to-scan: com.example.controller
+  paths-to-match: /api/**
 
 management:
   endpoints:

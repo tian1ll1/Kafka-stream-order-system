@@ -21,7 +21,7 @@ dependencies {
     
     // Kafka Streams
     implementation 'org.springframework.kafka:spring-kafka'
-    implementation 'org.springframework.kafka:spring-kafka-streams'
+//    implementation 'org.springframework.kafka:spring-kafka-streams'
     
     // Spring Cloud Stream
     implementation 'org.springframework.cloud:spring-cloud-stream'
@@ -44,7 +44,10 @@ dependencies {
     testImplementation 'org.apache.jmeter:ApacheJMeter_http:5.6.3'
     testImplementation 'org.apache.jmeter:ApacheJMeter_components:5.6.3'
     testImplementation 'org.apache.jmeter:ApacheJMeter_config:5.6.3'
-    testImplementation 'org.apache.jmeter:ApacheJMeter_visualizers:5.6.3'
+//    testImplementation 'org.apache.jmeter:ApacheJMeter_visualizers:5.6.3'
+    
+    // SpringDoc OpenAPI UI
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
 }
 
 dependencyManagement {
